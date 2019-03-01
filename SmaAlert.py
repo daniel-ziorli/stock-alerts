@@ -8,15 +8,17 @@ import smtplib
 
 
 def sendemail(message):
-    header = 'From: %s\n' % ('kannomonster@gmail.com')
-    header += 'To: %s\n' % ('kannomonster@gmail.com')
-    header += 'Cc: %s\n' % ('kannomonster@gmail.com')
+    email = "email@email.com"
+    password = "pass"
+    header = 'From: %s\n' % (email)
+    header += 'To: %s\n' % (email)
+    header += 'Cc: %s\n' % (email)
     header += 'Subject: %s\n\n' % ('SMA Alert')
     message = header + message
 
     server = smtplib.SMTP('smtp.gmail.com: 587')
     server.starttls()
-    server.login('kannomonster@gmail.com', 'CandyZ.1999')
+    server.login(email, password)
     problems = server.sendmail('kannomonster@gmail.com', 'kannomonster@gmail.com', message)
     server.quit()
     return problems
